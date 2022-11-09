@@ -9,43 +9,68 @@ TEAM 22
 SPRINT 1 - COMPLETE
 
 
-Scrum Meeting 1:
-Date = October 28 (9:15 am - 9:30 am)
-Purpose = Discuss repo creation, Atlassian Jira functionality, web app framework
-Participation = 100%
+~ Scrum Meeting 1 ~
 
-Scrum Meeting 2:
-Date = November 4 (8:00 pm - 8:15 pm)
-Purpose = Discuss high level concepts of framework, ensure all members are on task and have no blockers
-Participation = 100%
+Date: October 28 (9:15 am - 9:30 am)
 
-Scrum Meeting 3:
-Date = November 8 (4:40 pm to 4:50 pm)
-Purpose = Ensure all members have completed their assigned tasks, discuss next sprint's schedule and group member availibility
-Participation = 100%
+Purpose
+- Reflect on Project 2 work and transition into Project 3
+- Communicate goals for the project at a high-level
+- Discuss repo creation
+- Atlassian Jira functionality
+- Web app framework
+
+Participation: 100%
+
+
+~ Scrum Meeting 2 ~
+
+Date: November 4 (8:00 pm - 8:15 pm)
+
+Purpose
+- Discuss high level concepts of framework
+- Ensure all members are on task and have no blockers
+- Learn about the different possible frameworks
+- Create a React app and create a template outline
+- Gain a much deeper understanding of React, Atlassian Jira, POST/GET URL parameter requests with Postman
+
+Participation: 100%
+
+
+~ Scrum Meeting 3 ~
+
+Date: November 8 (4:40 pm to 4:50 pm)
+
+Purpose
+- Ensure all members have completed their assigned tasks, discuss next sprint's schedule and group member availibility
+- Complete GitHub release deliverable
+- Complete all Scrum meeting notes
+- Complete the burndown chart and product backlog
+- Complete retrospective summary and sprint backlog
+
+Participation: 100%
 
 ####################################################################################################
 SPRINT 2 - IN PROGRESS
 
 
-Scrum Meeting 1:
-Date = November 9 (9:15 am - 9:30 am)
-Purpose = 
-Participation = 
+~ Scrum Meeting 1 ~
 
-Scrum Meeting 2:
-Date = November 14 (9:30 pm - 9:45 pm)
-Purpose =
-Participation = 
+Date: November 9 (9:15 am - 9:30 am)
 
-Scrum Meeting 3:
-Date = November 17 (3:00 pm to 3:10 pm)
-Purpose = 
-Participation =
 
-Scrum Meeting 4:
-Date = November 21 (10:30 pm to 10:45 pm)
-Purpose = 
-Participation =
+~ Scrum Meeting 2 ~
+
+Date: November 14 (9:30 pm - 9:45 pm)
+
+
+~ Scrum Meeting 3 ~
+
+Date: November 17 (3:00 pm to 3:10 pm)
+
+
+~ Scrum Meeting 4 ~
+
+Date: November 21 (10:30 pm to 10:45 pm)
 
 ####################################################################################################
