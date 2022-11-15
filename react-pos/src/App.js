@@ -1,8 +1,14 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, route} from 'react-router-dom';
+import ManagerPage from './pages/ManagerPage';
 
 function App() {
 
-  const handleClick = (param) => {
+  return (
+    ManagerPage()
+  );
+
+  /* const handleClick = (param) => {
     console.log(param);
   };
 
@@ -94,7 +100,7 @@ function App() {
       </div>
 
     </div>
-  );
+  ); */
 }
 
 export default App;
