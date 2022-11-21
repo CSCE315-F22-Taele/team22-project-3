@@ -5,6 +5,8 @@
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	height: auto;
+	max-width: auto;
 }
 
 .App-header {
@@ -13,7 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(45px + 2vmin);
+  font-size: calc(25px + 2vmin);
   vertical-align: text-center;
   color: #454857;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -23,7 +25,7 @@
 
 .App-body {
   background-color: white;
-  margin-top: calc(25px + 2vmin);
+  margin-top: calc(50px + 2vmin);
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -50,7 +52,7 @@
 
 }
 ul {
-  padding-top: calc(100px + 2vmin);
+  padding-top: calc(150px + 2vmin);
   list-style:none;
   padding-left:0;
 }
@@ -97,6 +99,45 @@ li {
 }
 
 .radio input:before {
+	content: attr(label);
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+.radio1 {
+	position: relative;
+}
+
+.radio1 input {
+	width: auto;
+	height: 200%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 4px;
+	padding: 4px 8px;
+	background: #454857;
+	color: #bdbdbdbd;
+	font-size: 10px;
+  text-transform: uppercase;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	transition: all 100ms linear;
+  
+}
+
+.radio1 input:checked {
+	background-image: linear-gradient(180deg, #d89191, #bb7474);
+	color: #fff;
+	box-shadow: 0 1px 1px #0000002e;
+	text-shadow: 0 1px 0px #79485f7a;
+}
+
+.radio1 input:before {
 	content: attr(label);
 	display: inline-block;
 	text-align: center;
