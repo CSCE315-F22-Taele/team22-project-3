@@ -1,18 +1,21 @@
 var menu_item_ids = new Array(27).fill(100); //27 items in inventory
 var order_array = new Array(15).fill('\'0\''); //used for psql stmt
-var prices = [ 7.29,
-    8.29,
-    8.19,
-    7.29,
-       2,
-       2,
-    2.19,
-    3.64,
-    3.69,
-    1.99,
-    1.99,
-    2.25,
-    2.75];
+var prices = 
+[ 
+    7.29, //chicken
+    8.29, //steak
+    8.19, //beef
+    7.29, //vegetables
+       2, //guac
+       2, //queso
+    2.19, //chips_salsa
+    3.64, //chips_queso
+    3.69, //chips_guac
+    1.99, //brownie
+    1.99, //cookie
+    2.25, //16oz
+    2.75  //22oz  
+];
 
 //finding date
 var today = new Date();
@@ -69,9 +72,13 @@ function sendOrder () {
 
     //calculating cost
 
-    for (let i = 0; i <= 12; i++) { //first 12 items in invetory are the only ones w cost
-        var item_cost = document.getElementById(0).cost;
-        console.log(item_cost);
+    for (let i = 0; i <= 5; i++) { //first 12 items in invetory are the only ones w cost
+        if (document.getElementById(i).checked) {
+            var item_price = prices[i];
+            cost = cost + item_price;
+            console.log(item_price);
+            console.log("current cost: " + cost);
+        }
     }
 
     //adding cost to sql stmt
