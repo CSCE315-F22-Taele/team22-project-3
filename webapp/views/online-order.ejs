@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+    <title>Online Order</title>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <style>@import url('https://fonts.cdnfonts.com/css/western-cowboy');</style>
+    <script src = 'js/scripts.js' type = 'text/javascript'></script>
+
+</head>
+<header>
+    <nav>
+        <b>|</b>    <a href="/ ">Home</a>
+        <b>|</b>    <a href="/user">Users</a>
+        <b>|</b>    Online Order
+        <b>|</b>    <a href="/server-view">Server View</a>
+    </nav>
+</header>
+
+
+<body>
+    <div class = "wrapper">
+        <h1> Online Order</h1>
+            <div class = "menu" >
+                <p> choose your base: </p>
+                <div class = "buttons">
+                    <input type="radio" id="burrito" name="base" value="0" onclick="validate(id)" > 
+                    <label for="burrito">Burrito</label>
+
+                    <input type="radio" id="bowl" name="base" value="0" onclick="validate(id)"> 
+                    <label for="bowl">Bowl</label>
+                </div>
+
+                <br>
+                <hr>
+                <br>
+
+                <p> Protein or Veggies </p>
+                <div class = "buttons">
+                    <input type="radio" id="chicken" name="protein" value="0"  onclick="validate(id)"> 
+                    <label for="chicken">Chicken</label>
+
+                    <input type="radio" id="steak" name="protein" value="0" onclick="validate(id)"> 
+                    <label for="steak">Steak</label>
+
+                    <input type="radio" id="beef" name="protein" value="0" onclick="validate(id)"> 
+                    <label for="beef">Beef</label>
+
+                    <input type="radio" id="vegetables" name="protein" value="0" onclick="validate(id)"> 
+                    <label for="vegetables">Vegetables</label>
+
+                </div>
+
+                <br>
+                <hr>
+                <br>
+
+                <p> Add ons </p>
+
+                 <br>
+                <div class = "buttons">
+
+
+                    <input type="checkbox" id="4" onclick="validate(id)"> 
+                    <label for="4">Gucamole</label>
+                    
+                    <input type="checkbox" id="queso" onclick="validate(id)"> 
+                    <label for="queso">Queso</label>
+
+                    <br> <br>
+                    <input type="checkbox" id="rice" onclick="validate(id)"> 
+                    <label for="rice">Rice</label>
+
+                    <input type="checkbox" id="cheese" onclick="validate(id)"> 
+                    <label for="cheese">Cheese</label>
+
+                    <input type="checkbox" id="ranch" onclick="validate(id)"> 
+                    <label for="ranch">Ranch</label>
+
+                    <br> <br>
+                    <input type="checkbox" id="chipotle" onclick="validate(id)"> 
+                    <label for="chipotle">Chipotle</label>
+
+                    <input type="checkbox" id="salsa" onclick="validate(id)"> 
+                    <label for="salsa">Salsa</label>
+
+                    <input type="checkbox" id="sour-cream" onclick="validate(id)"> 
+                    <label for="sour-cream">Sour Cream</label>
+                    <input type="checkbox" id="cream" onclick="validate(id)"> <label for="cream">Cream</label>
+                </div>
+                
+
+
+                
+                <!--
+                    
+                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                <label for="javascript">JavaScript</label>
+
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3"> I have a boat</label>
+    
+    
+                -->
+    
+                
+            </div>
+        
+ 
+    </div>
+</body>
+
+<footer>
+    <input type="checkbox" id= "same-customer"> <label for="same-customer">Same customer?</label>
+    <button onclick="sendOrder()" > Send Order </button>
+</footer>
