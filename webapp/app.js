@@ -16,7 +16,7 @@ const pool = new Pool ({
     ssl: {rejectUnauthorized: false}
 });
 
-exports.pool = pool;
+//exports.pool = pool;
 
 //add process hook to shutdown pool
 process.on('SIGINT', function() {
