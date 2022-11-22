@@ -89,10 +89,57 @@
                 <hr>
                 <br>
 
-                <p>
-                    Drinks and Deserts
-                </p>
+                <p> Chips and Dips </p>
+                <div class = "buttons">
+                    <input type="checkbox" id="6" onclick="validate(id)"> 
+                    <label for="6">Chips and Salsa</label>
+                    <br>
+                    <br>
+
+                    <input type="checkbox" id="7" onclick="validate(id)"> 
+                    <label for="7">Chips and Queso</label>
+                    <br>
+                    <br>
+
+
+                    <input type="checkbox" id="8" onclick="validate(id)"> 
+                    <label for="8">Chips and Guac</label>
+                </div>
                 
+                <br>
+                <hr>
+                <br>
+
+
+                <p> Drinks and Deserts </p>
+                <div class="buttons"> 
+                    <input type="checkbox" id="11" onclick="validate(id)"> 
+                    <label for="11">16oz Drink</label>
+
+                    <input type="checkbox" id="12" onclick="validate(id)"> 
+                    <label for="12">22oz Drink</label>
+
+                    <input type="checkbox" id="9" onclick="validate(id)"> 
+                    <label for="9">Brownie</label>
+
+                    <input type="checkbox" id="10" onclick="validate(id)"> 
+                    <label for="10">Cookie</label>
+                </div> 
+
+                <br>
+                <hr>
+                <br>
+
+                <p> Etc. </p>
+                <div class="buttons">
+                    <input type="checkbox" id="22" onclick="validate(id)"> 
+                    <label for="22">Napkins</label>
+                
+                    <input type="checkbox" id="23" onclick="validate(id)"> 
+                    <label for="23">Utensils</label>
+
+                </div>
+
                 <!--
                     
                 <input type="radio" id="javascript" name="fav_language" value="JavaScript">
@@ -114,4 +161,5 @@
 <footer>
     <input type="checkbox" id= "same-customer"> <label for="same-customer">Same customer?</label>
     <button onclick="sendOrder()" > Send Order </button>
+    Total: <textarea id = "total" value = "0.0"></textarea>
 </footer>
