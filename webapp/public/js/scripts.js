@@ -48,7 +48,7 @@ function validate(id) {
         if (document.getElementById(i).checked) {
             var item_price = prices[i];
             cost = cost + item_price;
-            Number(cost.toFixed(2));
+            cost = Number(cost.toFixed(2));
             document.getElementById("total").textContent=  "$" + cost;
             order_array[13] = cost;
         }
