@@ -6,6 +6,11 @@ body {
     color: #ffffff;
 }
 
+.price {
+    display: inline;
+    color: #87ae73;
+    letter-spacing: 0.15em;
+}
 .wrapper {
 
     font-size: 32px;
@@ -43,10 +48,16 @@ h1 {
 
 }
 
-header, footer {
+header{
     background-color: #542e19;
     padding: 20px;
     font-size: 15px;
+}
+
+footer {
+    background-color: #542e19;
+    padding: 20px;
+    font-size: 30px;
 }
 
 a {
