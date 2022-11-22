@@ -51,7 +51,7 @@ Purpose
 Participation: 100%
 
 ####################################################################################################
-SPRINT 2 - IN PROGRESS
+SPRINT 2 - COMPLETE
 
 
 ~ Scrum Meeting 1 ~
@@ -108,3 +108,35 @@ Purpose
 Participation: 100%
 
 ####################################################################################################
+SPRINT 3 - NEXT STEP
+
+Note: established "no communication" days on 11/23 and 11/24
+
+~ Scrum Meeting 1 ~
+
+Date: November 28 (9:15 am - 9:30 am)
+
+Purpose
+- Discuss expert panel report, complete peer evaluation, assign tasks for Sprint, discuss JIRA story board and progress going into the last sprint
+
+Participation: TBD
+
+
+~ Scrum Meeting 2 ~
+
+Date: December 2 (11:30 am - 11:45 am)
+
+Purpose
+- Prepare reflection, ensure completion of assigned tasks, discuss potential of additional meetings as the sprint comes to a close
+
+Participation: TBD
+
+
+~ Scrum Meeting 3 ~
+
+Date: December 5 (10:30 pm - 10:45 pm)
+
+Purpose
+- Prepare code documentation, finish written written materials, and ensure project completeness is up-to-par for team and ready for final submission
+
+Participation: TBD
