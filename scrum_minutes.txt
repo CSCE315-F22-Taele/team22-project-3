@@ -88,9 +88,12 @@ Participation: 100%
 Date: November 17 (3:00 pm to 3:10 pm)
 
 Purpose
-- TODO
+- Learn and gain experience using Express JS
+- Meet in lecture to discuss css with .ejs and src script files
+- Establish PSQL Connection
+- Server view, Customer view, Manager view, home page, nav bar creation
 
-Participation: TBD
+Participation: 100%
 
 
 ~ Scrum Meeting 4 ~
@@ -98,8 +101,10 @@ Participation: TBD
 Date: November 21 (10:30 pm to 10:45 pm)
 
 Purpose
-- TODO
+- Meet for pre-recorded website demo (due Nov 22)
+- Share schedules during Thanksgiving via GroupMe
+- Establish "no communication days" for Wednesday, 11/23 (travel day) and Thursday, 11/24 (Thanksgiving Day)
 
-Participation: TBD
+Participation: 100%
 
 ####################################################################################################
