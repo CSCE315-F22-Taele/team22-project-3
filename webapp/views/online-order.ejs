@@ -20,7 +20,7 @@
     <div class = "wrapper">
         <h1> Online Order</h1>
             <div class = "menu" >
-                <p> choose your base: </p>
+                <p> choose your base </p>
                 <div class = "buttons">
                     <input type="radio" id="13" name="base" value="Burrito" > 
                     <label for="13">Burrito</label>
@@ -135,13 +135,11 @@
                     <label for="9">Brownie<div class = "price"> ($1.99)</div></label> &nbsp; &nbsp;
 
                     <input type="checkbox" id="10" onclick="validate(id)"> 
-                    <label for="10">Cookie<div class = "price"> ($1.99)</label>
+                    <label for="10">Cookie<div class = "price"> ($1.99)</div></label>
                 </div> 
 
                 <br>
                 <hr>
-                <br>
-
                 <p> Etc. </p>
                 <div class="buttons">
                     <input type="checkbox" id="22" onclick="validate(id)"> 
@@ -182,11 +180,11 @@
 
 
    
-    Total: <div class = "price">  <text id = "total" value = "0.0"> $0.00</text> </div>
+        Total: <div class = "price">  <text id = "total" value = "0.0"> $0.00</text> </div>
 
         <br>  
         <br>      
-        <button onclick="sendOrder()" > Send Order </button>
+        <div class = "send"><button onclick="sendOrder()" > Send It! </button> </div>
 
 </div>
 </footer>
