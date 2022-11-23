@@ -38,6 +38,10 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
 app.get('/Manager-View', (req, res) => {
     items = []
     pool
