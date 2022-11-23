@@ -1,0 +1,145 @@
+TEAM 22
+
+- Asger Larsen
+- Joshua Batac
+- Semion Dyadkin
+- Jonathan Kutsch
+
+####################################################################################################
+SPRINT 1 - COMPLETE
+
+
+~ Scrum Meeting 1 ~
+
+Date: October 28 (9:15 am - 9:30 am)
+
+Purpose
+- Reflect on Project 2 work and transition into Project 3
+- Communicate goals for the project at a high-level
+- Discuss repo creation
+- Atlassian Jira functionality
+- Web app framework
+
+Participation: 100%
+
+
+~ Scrum Meeting 2 ~
+
+Date: November 4 (8:00 pm - 8:15 pm)
+
+Purpose
+- Discuss high level concepts of framework
+- Ensure all members are on task and have no blockers
+- Learn about the different possible frameworks
+- Create a React app and create a template outline
+- Gain a much deeper understanding of React, Atlassian Jira, POST/GET URL parameter requests with Postman
+
+Participation: 100%
+
+
+~ Scrum Meeting 3 ~
+
+Date: November 8 (4:40 pm to 4:50 pm)
+
+Purpose
+- Ensure all members have completed their assigned tasks, discuss next sprint's schedule and group member availibility
+- Complete GitHub release deliverable
+- Complete all Scrum meeting notes
+- Complete the burndown chart and product backlog
+- Complete retrospective summary and sprint backlog
+
+Participation: 100%
+
+####################################################################################################
+SPRINT 2 - COMPLETE
+
+
+~ Scrum Meeting 1 ~
+
+Date: November 9 (9:15 am - 9:30 am)
+
+Purpose
+- Run through current functionality of front-end POS
+- Ensure all tasks in backlog are up to date
+- Complete presentation for Wednesday, 11/14, update video in lab
+- Assess all team members schedule availability for Sprint 2 for staying on task as we go into Thanksgiving break
+
+Participation: 100%
+
+
+~ Scrum Meeting 2 ~
+
+Date: November 14 (1:45 pm - 2:00 pm)
+
+Purpose
+- Begin and complete mid-project status report
+- Prepare for giving presentation as a team
+- Asger (Slides 1-2): intro and our idea/purpose of cloud-based POS
+- Joshua (slides 3- 6): discuss technology stack and MVP1 status
+- Jonathan (slides 7-9): transition into the bridge from MVP1 to MVP2 (show sprint backlog, burndown chart, and product backlog)
+- Asger (slides 10-11): discuss future plans, direction moving forward, and database connectivity
+- Semion (slide 12): MVP3 goals, access restrictions, and overall accessibility
+
+Participation: 100%
+
+
+~ Scrum Meeting 3 ~
+
+Date: November 17 (3:00 pm to 3:10 pm)
+
+Purpose
+- Learn and gain experience using Express JS
+- Meet in lecture to discuss css with .ejs and src script files
+- Establish PSQL Connection
+- Server view, Customer view, Manager view, home page, nav bar creation
+
+Participation: 100%
+
+
+~ Scrum Meeting 4 ~
+
+Date: November 21 (10:30 pm to 10:45 pm)
+
+Purpose
+- Complete the Sprint 2 materials
+- Ensure proper deployment on a publicly hosted domain
+- Meet for pre-recorded website demo (due Nov 22)
+- Update JIRA storyboard, sprint backlog, product backlog
+- Share schedules during Thanksgiving via GroupMe
+- Establish "no communication days" for Wednesday, 11/23 (travel day) and Thursday, 11/24 (Thanksgiving Day)
+
+Participation: 100%
+
+####################################################################################################
+SPRINT 3 - NEXT STEP
+
+Note: established "no communication" days on 11/23 and 11/24
+
+~ Scrum Meeting 1 ~
+
+Date: November 28 (9:15 am - 9:30 am)
+
+Purpose
+- Discuss expert panel report, complete peer evaluation, assign tasks for Sprint, discuss JIRA story board and progress going into the last sprint
+
+Participation: TBD
+
+
+~ Scrum Meeting 2 ~
+
+Date: December 2 (11:30 am - 11:45 am)
+
+Purpose
+- Prepare reflection, ensure completion of assigned tasks, discuss potential of additional meetings as the sprint comes to a close
+
+Participation: TBD
+
+
+~ Scrum Meeting 3 ~
+
+Date: December 5 (10:30 pm - 10:45 pm)
+
+Purpose
+- Prepare code documentation, finish written written materials, and ensure project completeness is up-to-par for team and ready for final submission
+
+Participation: TBD
