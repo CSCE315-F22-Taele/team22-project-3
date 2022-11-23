@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/user', (req, res) => {
+app.get('/login', (req, res) => {
     teammembers = []
     pool
         .query('SELECT * FROM teammembers;')
@@ -48,12 +48,16 @@ app.get('/user', (req, res) => {
             }
             const data = {teammembers: teammembers};
             console.log(teammembers);
-            res.render('user',data);
+            res.render('login',data);
         });
 });
 
 app.get('/online-order', (req,res) => {
     res.render('online-order');
+});
+
+app.get('/manager-view', (req,res) => {
+    res.render('manager-view');
 });
 
 app.get('/server-view', (req,res) => {
