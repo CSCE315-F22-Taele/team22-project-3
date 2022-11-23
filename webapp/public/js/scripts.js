@@ -1,4 +1,4 @@
-var menu_item_ids = new Array(27).fill(100); //27 items in inventory
+var menu_item_ids = new Array(24).fill(100); //27 items in inventory
 var order_array = new Array(15).fill('\'0\''); //used for psql stmt
 var prices = 
 [ 
@@ -37,10 +37,21 @@ var cost = 0.0;
 function validate(id) {
     if (document.getElementById(id).checked) {
         menu_item_ids[id] = menu_item_ids[id] - 1;
-        if (id < 12) { order_array[id] = '1'; } //any id number over 12 cost zero, no counted in array
+        if (id <= 12) { order_array[id] = '1'; } //any id number over 12 cost zero, no counted in array
     } else {
         menu_item_ids[id] = menu_item_ids[id]+1;
-        if (id < 12) { order_array[id] = '0'; }
+        if (id <= 12) { order_array[id] = '0'; }
+    }
+    cost = 0;
+
+    for (let i = 0; i <= 12; i++) { //first 12 items in invetory are the only ones w cost
+        if (document.getElementById(i).checked) {
+            var item_price = prices[i];
+            cost = cost + item_price;
+            cost = Number(cost.toFixed(2));
+            document.getElementById("total").textContent=  "$" + cost;
+            order_array[13] = cost;
+        }
     }
 }
 
@@ -72,17 +83,19 @@ function sendOrder () {
 
     //calculating cost
 
-    for (let i = 0; i <= 5; i++) { //first 12 items in invetory are the only ones w cost
+    /*
+    for (let i = 0; i <= 12; i++) { //first 12 items in invetory are the only ones w cost
         if (document.getElementById(i).checked) {
             var item_price = prices[i];
             cost = cost + item_price;
+            cost = Number(cost.toFixed(2));
             console.log(item_price);
             console.log("current cost: " + cost);
         }
     }
+    */
 
     //adding cost to sql stmt
-    order_array[13] = cost;
 
     //checking inventory calculations
     let inventory = menu_item_ids.toString();
@@ -97,7 +110,9 @@ function sendOrder () {
 
     //checking sqlstmt
     let psqlStatementArray = order_array.toString();
-    console.log(psqlStatementArray);
+
+    var psqlStmt = "INSERT INTO inventory (food_id, food_name, current_count, max_count, sell_price, is_menu_item) VALUES (" + psqlStatementArray + ")";
+    console.log(psqlStmt);
 
     //reload page
     location.reload();
