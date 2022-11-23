@@ -38,17 +38,17 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/user', (req, res) => {
-    teammembers = []
+app.get('/inventory', (req, res) => {
+    items = []
     pool
-        .query('SELECT * FROM teammembers;')
+        .query('SELECT * FROM inventory ORDER BY food_id ASC;')
         .then(query_res => {
             for (let i = 0; i < query_res.rowCount; i++) {
-                teammembers.push(query_res.rows[i]);
+                items.push(query_res.rows[i]);
             }
-            const data = {teammembers: teammembers};
-            console.log(teammembers);
-            res.render('user',data);
+            const data = {items: items};
+            console.log(items);
+            res.render('inventory',data);
         });
 });
 

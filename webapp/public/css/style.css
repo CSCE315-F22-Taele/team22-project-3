@@ -53,3 +53,26 @@ a {
     color: white;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #ece7e3;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: left;
+    
+}
+
+th, tr {
+    padding-top: 10px;
+    border-bottom: 3px solid #3a1f11;
+}
+
+tr.table-title>td {
+    padding-bottom: 1em;
+}
+
+.table-title {
+    font-size: 30px;
+    margin: 100px;
+}
