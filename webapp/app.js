@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/inventory', (req, res) => {
+app.get('/Manager-View', (req, res) => {
     items = []
     pool
         .query('SELECT * FROM inventory ORDER BY food_id ASC;')
@@ -48,7 +48,7 @@ app.get('/inventory', (req, res) => {
             }
             const data = {items: items};
             console.log(items);
-            res.render('inventory',data);
+            res.render('Manager-View',data);
         });
 });
 

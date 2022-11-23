@@ -76,11 +76,11 @@ p {
 
 
 input {
-    border: #87ae73;
+    border: green;
 }
 .price {
     display: inline;
-    color: #87ae73;
+    color: green;
     letter-spacing: 0.15em;
     background-color: white;
 
