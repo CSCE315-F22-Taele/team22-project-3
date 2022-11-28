@@ -42,6 +42,10 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 
+app.get('/locations', (req, res) => {
+    res.render('locations');
+});
+
 app.get('/Manager-View', (req, res) => {
     items = []
     pool
