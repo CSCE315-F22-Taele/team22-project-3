@@ -34,6 +34,7 @@ h1 {
     color: #ece7e3;
 }
 
+
 .buttons {
     text-align: center;
 }
@@ -59,6 +60,10 @@ footer {
     padding: 20px;
     font-size: 30px;
     text-align: center;
+}
+
+.us {
+    font-size: 20px;
 }
 
 a {
@@ -98,6 +103,17 @@ button {
     background-color: #5c9590;
     margin-bottom: 10px;
     font-size: 25px;
+}
+
+a.button {
+    display: inline-block;
+    padding: 15px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: white;
+    background-color: #5c9590;
+    margin-bottom: 10px;
+    font-size: 45px;
 }
 
 input[type="checkbox"]:not(:checked), 

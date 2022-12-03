@@ -60,6 +60,11 @@ app.get('/online-order', (req,res) => {
     res.render('online-order');
 });
 
+app.get('/online-checkout', (req, res) => {
+    res.render('online-checkout');
+});
+
+
 app.get('/server-view', (req,res) => {
     res.render('server-view');
 });

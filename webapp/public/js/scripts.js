@@ -1,5 +1,6 @@
 var menu_item_ids = new Array(24).fill(100); //27 items in inventory
 var order_array = new Array(15).fill('\'0\''); //used for psql stmt
+var document = "/online-order";
 var prices = 
 [ 
     7.29, //chicken
@@ -29,7 +30,7 @@ order_array[14] = today;
 
 
 
-var order_number = 0;
+var order_number = 101921559;
 var customer_number = -1; //never same customer for first order
 var cost = 0.0;
 
@@ -37,10 +38,10 @@ var cost = 0.0;
 function validate(id) {
     if (document.getElementById(id).checked) {
         menu_item_ids[id] = menu_item_ids[id] - 1;
-        if (id <= 12) { order_array[id] = '1'; } //any id number over 12 cost zero, no counted in array
+        if (id <= 12) { order_array[id] = "\'1\'"; } //any id number over 12 cost zero, no counted in array
     } else {
         menu_item_ids[id] = menu_item_ids[id]+1;
-        if (id <= 12) { order_array[id] = '0'; }
+        if (id <= 12) { order_array[id] = "\'0\'"; }
     }
     cost = 0;
 
@@ -49,7 +50,7 @@ function validate(id) {
             var item_price = prices[i];
             cost = cost + item_price;
             cost = Number(cost.toFixed(2));
-            document.getElementById("total").textContent=  "$" + cost;
+            document.getElementById("total").textContent=  "$" + cost; //updating cost
             order_array[13] = cost;
         }
     }
@@ -64,7 +65,7 @@ function sendOrder () {
             var str = document.getElementById(i).value;
             //console.log(str);
             menu_item_ids[i] = menu_item_ids[i] - 1; //remove from inv
-            order_array[2] = str; //set sqlstmt arr to str
+            order_array[2] = "\'" + str + "\'"; //set sqlstmt arr to str
             break;
         }
     }
@@ -76,7 +77,7 @@ function sendOrder () {
             var str = document.getElementById(i).value;
             //console.log(str);
             menu_item_ids[i] = menu_item_ids[i] - 1; //remove from inv
-            order_array[3] = str; //set sqtmt arr to str
+            order_array[3] = "\'" + str + "\'"; //set sqtmt arr to str
             break;
         }
     }
@@ -111,9 +112,15 @@ function sendOrder () {
     //checking sqlstmt
     let psqlStatementArray = order_array.toString();
 
-    var psqlStmt = "INSERT INTO inventory (food_id, food_name, current_count, max_count, sell_price, is_menu_item) VALUES (" + psqlStatementArray + ")";
+    var psqlStmt = "INSERT INTO order_entries (order_number, customer, base, protein, guacamole, queso, chips_salsa, chips_queso, chips_guac, brownie, cookie, drink_16oz, drink_22oz, cost, date) VALUES (" + psqlStatementArray + ");";
     console.log(psqlStmt);
 
+    window.name = psqlStmt;
+
     //reload page
-    location.reload();
+    //location.reload();
+}
+
+function showCost() {
+    console.log(window.name);
 }
