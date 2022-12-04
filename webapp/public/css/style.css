@@ -5,7 +5,14 @@ body {
     font-family: 'Western Cowboy', sans-serif;
     color: #ffffff;
 }
-
+.map {
+    text-align: center;
+    background-color: #3a1f11;
+    margin: auto;
+    width: 60%;
+    border: 3px solid #984c2b;
+    padding: 10px;
+}
 .price {
     display: inline;
     color: #87ae73;
