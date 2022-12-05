@@ -39,6 +39,12 @@ h1 {
     letter-spacing: 5px;
     font-size: 100px;
     color: #ece7e3;
+    text-align: center;
+    background-color: #3a1f11;
+    margin: auto;
+    width: 60%;
+
+    padding: 10px;
 }
 
 

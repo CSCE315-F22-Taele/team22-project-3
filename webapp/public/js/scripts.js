@@ -1,3 +1,6 @@
+
+
+
 var menu_item_ids = new Array(24).fill(100); //27 items in inventory
 var order_array = new Array(15).fill('\'0\''); //used for psql stmt
 var document = "/online-order";
@@ -33,6 +36,7 @@ order_array[14] = today;
 var order_number = 101921559;
 var customer_number = -1; //never same customer for first order
 var cost = 0.0;
+var protein_cost = 0.0;
 
 
 function validate(id) {
@@ -45,7 +49,7 @@ function validate(id) {
     }
     cost = 0;
 
-    for (let i = 0; i <= 12; i++) { //first 12 items in invetory are the only ones w cost
+    for (let i = 4; i <= 12; i++) { //first 12 items in invetory are the only ones w cost. After 4 is non proteins
         if (document.getElementById(i).checked) {
             var item_price = prices[i];
             cost = cost + item_price;
@@ -54,6 +58,27 @@ function validate(id) {
             order_array[13] = cost;
         }
     }
+}
+
+function validateProtein(id) {
+
+    cost = cost - protein_cost;
+    for (let i = 0; i < 4; i++) {
+        if (document.getElementById(i).checked) {
+            protein_cost = prices[i];
+            cost = cost + protein_cost;
+            cost = Number(cost.toFixed(2));
+            document.getElementById("total").textContent=  "$" + cost; //updating cost
+            order_array[13] = cost;
+            break;
+        }
+    }
+    console.log(cost);
+    if (id < 0) {
+        document.getElementById("total").textContent=  "$" + cost; //updating cost
+        protein_cost = 0;
+    }
+
 }
 
 function sendOrder () {
@@ -82,19 +107,6 @@ function sendOrder () {
         }
     }
 
-    //calculating cost
-
-    /*
-    for (let i = 0; i <= 12; i++) { //first 12 items in invetory are the only ones w cost
-        if (document.getElementById(i).checked) {
-            var item_price = prices[i];
-            cost = cost + item_price;
-            cost = Number(cost.toFixed(2));
-            console.log(item_price);
-            console.log("current cost: " + cost);
-        }
-    }
-    */
 
     //adding cost to sql stmt
 
