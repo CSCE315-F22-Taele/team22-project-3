@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>Inventory</title>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <style>@import url('https://fonts.cdnfonts.com/css/western-cowboy');</style>
+</head>
+
+<header>
+    <nav>
+        <b>|</b>    <a href="/ ">Home</a>
+        <b>|</b>    <a href="/login">Login</a>
+        <b>|</b>    <a href="/online-order">Online Order</a>
+    </nav>
+</header>
+
+<body>
+    <div class = "wrapper">
+        <h1>Inventory</h1>
+        <div class="buttons">
+            <button href="/inventory/add" class="button">Add Item</button>
+            <button href="/inventory/delete" class="button">Remove Item</button>
+            <button href="/inventory/update" class="button">Update Item</button>
+        </div>
+        <div class = "menu" >
+            <table>
+                <tr class = "table-title">
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Current Count</td>
+                    <td>Max Count</td>
+                    <td>Price</td>
+                    <td>Menu Item</td>
+                    <td>Protein</td>
+                </tr>
+                <% for (var i in items) { %>
+                    <tr>
+                        <td><%=items[i].food_id%></td>
+                        <td><%=items[i].food_name%></td>
+                        <td><%=items[i].current_count%></td>
+                        <td><%=items[i].max_count%></td>
+                        <td><%=items[i].sell_price%></td>
+                        <td><%=items[i].is_menu_item%></td>
+                        <td><%=items[i].is_protein%></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+

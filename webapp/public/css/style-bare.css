@@ -1,0 +1,96 @@
+* {
+    text-transform: uppercase;
+    background-color: gainsboro;
+}
+
+
+input[type="checkbox"]:not(:checked), 
+input[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999%;
+}
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"]:checked + label {
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+}
+
+
+
+
+input[type="radio"]:not(:checked), 
+input[type="radio"]:checked {
+  position: absolute;
+  left: -9999%;
+}
+
+input[type="radio"] + label {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+input[type="radio"]:checked + label {
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+}
+
+
+button {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    display: inline;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: left;
+}
+
+
+input {
+    border: green;
+}
+.price {
+    display: inline;
+    color: green;
+    letter-spacing: 0.15em;
+    background-color: white;
+
+}
+
+.buttons {
+    text-align: center;
+}
+
+.us {
+    font-weight: lighter;
+    font-size: 10px;
+}

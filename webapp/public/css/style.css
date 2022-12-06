@@ -1,0 +1,176 @@
+
+
+body {
+    background-color: #984c2b;
+    font-family: 'Western Cowboy', sans-serif;
+    color: #ffffff;
+}
+.map {
+    text-align: center;
+    background-color: #3a1f11;
+    margin: auto;
+    width: 60%;
+    border: 3px solid #984c2b;
+    padding: 10px;
+}
+.price {
+    display: inline;
+    color: #87ae73;
+    letter-spacing: 0.15em;
+}
+.wrapper {
+
+    font-size: 32px;
+    margin: 0 auto;
+    background-color: #5c9590;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.menu {
+    background-color: #542c1c;
+    padding: 10px;
+    color: #ece7e3;
+}
+h1 {
+    text-align: center;
+    text-shadow: 5px 0 #542e19, -2px 0 #542e19, 0 2px #542e19, 0 -2px #542e19, 1px 1px #542e19, -1px -1px #542e19, -1px 1px #542e19, 1px -1px #542e19;
+    letter-spacing: 5px;
+    font-size: 100px;
+    color: #ece7e3;
+    text-align: center;
+    background-color: #3a1f11;
+    margin: auto;
+    width: 60%;
+
+    padding: 10px;
+}
+
+
+.buttons {
+    text-align: center;
+}
+
+#ck-button {
+    background-color:#542c1c;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    float:left;
+    color: #ece7e3;
+
+}
+
+header{
+    background-color: #542e19;
+    padding: 20px;
+    font-size: 15px;
+}
+
+footer {
+    background-color: #542e19;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.us {
+    font-size: 20px;
+}
+
+a {
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #ece7e3;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: left;
+    
+}
+
+th, tr {
+    padding-top: 10px;
+    border-bottom: 3px solid #3a1f11;
+}
+
+tr.table-title>td {
+    padding-bottom: 1em;
+}
+
+.table-title {
+    font-size: 30px;
+    margin: 100px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: white;
+    background-color: #5c9590;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+a.button {
+    display: inline-block;
+    padding: 15px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: white;
+    background-color: #5c9590;
+    margin-bottom: 10px;
+    font-size: 45px;
+}
+
+input[type="checkbox"]:not(:checked), 
+input[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999%;
+}
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  color: white;
+  background-color: #984c2b;
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"]:checked + label {
+  border: 1px solid white;
+  color: white;
+  background-color: #5c9590;
+}
+
+input[type="radio"]:not(:checked), 
+input[type="radio"]:checked {
+  position: absolute;
+  left: -9999%;
+}
+
+input[type="radio"] + label {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  color: white;
+  background-color: #984c2b;
+  margin-bottom: 10px;
+}
+
+input[type="radio"]:checked + label {
+  border: 1px solid white;
+  color: white;
+  background-color: #5c9590;
+}
+
+
