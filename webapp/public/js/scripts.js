@@ -67,6 +67,7 @@ function resetCounter() {
  * @return      {void}           no return
  */
 function validate(id) {
+    document.getElementById("submit").style.visibility = 'hidden';
     var added = false;
     if (document.getElementById(id).checked) {
         menu_item_ids[id] = menu_item_ids[id] - 1;
@@ -105,6 +106,7 @@ function validate(id) {
  * @return      {void}           no return
  */
 function validateProtein(id) {
+    document.getElementById("submit").style.visibility = 'hidden';
 
     cost = cost - protein_cost;
     for (let i = 0; i < 4; i++) {
