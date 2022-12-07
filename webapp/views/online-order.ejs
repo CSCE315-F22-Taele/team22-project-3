@@ -11,23 +11,29 @@
         <b>|</b>    <a href="/ ">Home</a>
         <b>|</b>    <a href="/login">Login</a>
         <b>|</b>    Online Order
-        <b>|</b> <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-                 </script>
-                 <script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-            {pageLanguage: 'en'},
-            'google_translate_element'
-        );
-    }
-</script>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+    
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement(
+              {pageLanguage: 'en'},
+              'google_translate_element'
+          );
+      }
+  </script>
     </nav>
 </header>
 
 
 <body>
+    <br>
     <div class = "wrapper">
+        <br>     <br>
         <h1> Online Order</h1>
+        <br> <br>
             <div class = "menu" >
                 <p> choose your base </p>
                 <div class = "buttons">
@@ -38,6 +44,12 @@
 
                     <input type="radio" id="14" name="base" value="Bowl"> 
                     <label for="14">Bowl</label>
+
+                    &nbsp;
+                    &nbsp;
+
+                    <input type="radio" name="base" id = "-1" checked="checked"> 
+                    <label for="-1">None</label>
                 </div>
 
                 <br>
@@ -46,20 +58,23 @@
 
                 <p> Protein or Veggies </p>
                 <div class = "buttons">
-                    <input type="radio" id="0" name="protein" value="Chicken"> 
+                    <input type="radio" id="0" name="protein" value="Chicken" onclick="validateProtein(id)"> 
                     <label for="0">Chicken <div class = "price">($7.29)</div></label>
                     &nbsp; &nbsp;
 
-                    <input type="radio" id="1" name="protein" value="Steak"> 
+                    <input type="radio" id="1" name="protein" value="Steak" onclick="validateProtein(id)"> 
                     <label for="1">Steak <div class = "price">($8.29)</div></label>
                     <br>
                     <br>
-                    <input type="radio" id="2" name="protein" value="Beef"> 
+                    <input type="radio" id="2" name="protein" value="Beef" onclick="validateProtein(id)"> 
                     <label for="2">Beef <div class = "price">($8.19)</div></label>
                     &nbsp; &nbsp;
 
-                    <input type="radio" id="3" name="protein" value="Vegetables"> 
+                    <input type="radio" id="3" name="protein" value="Vegetables" onclick="validateProtein(id)"> 
                     <label for="3">Vegetables <div class = "price">($7.29)</div></label>
+
+                    <input type="radio" name="protein" id = "-2" checked="checked" onclick="validateProtein(id)"> 
+                    <label for="-2">None</label>
 
                 </div>
 
@@ -193,7 +208,14 @@
 
         <br>  
         <br>      
-        <div class = "send"><button onclick="sendOrder()" > Send It! </button> </div>
+        <a class="button" onclick="sendOrder()" >SEND IT</a>
 
 </div>
-</footer>
+
+<form action="" method="POST">
+    <input type="submit" class = "button" value="Verify Price then Click Me" id = "submit" style="visibility: hidden;"> 
+	<div class = "invis"> <input type="text" name="statement" id = "statementID" value = "">  </div>
+</form>
+
+<div class ="us"> Jonathan Kutsch | Asger Larsen | Joshua Batac | Semion Dyadkin </div>
+</footer> 

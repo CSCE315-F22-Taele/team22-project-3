@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <title>Sales report</title>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <style>@import url('https://fonts.cdnfonts.com/css/western-cowboy');</style>
+    <script src = 'js/scripts.js' type = 'text/javascript'></script>
+</head>
+
+<header>
+    <nav>
+        <b>|</b>    <a href="/ ">Home</a>
+        <b>|</b>    <a href="/login">Login</a>
+        <b>|</b>    <a href="/online-order">Online Order</a>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+    
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement(
+              {pageLanguage: 'en'},
+              'google_translate_element'
+          );
+      }
+  </script>
+    </nav>
+</header>
+
+<body>
+    <br>
+    <div class = "wrapper">
+        <br> <br>
+        <h1>Sales Report</h1>
+        <br> <hr> <br>
+        <p>Quarterly sales report for all menu items</p>
+        <div class = "menu" >
+
+            <table>
+                <tr class = "table-title">
+                    <td>Name</td>
+                    <td>Sale</td>
+                </tr>
+                <% for (var i in items) { %>
+                    <tr>
+                        <% if (i == 0) { %>
+                            <td>Bowl</td>
+                        <%} else if (i == 1){ %>
+                            <td>Burrito</td>
+                        <%} else if (i == 2){ %>
+                            <td>chips_queso</td>
+                        <%} else if (i == 3){ %>
+                            <td>chips_queso</td>
+                        <%} else if (i == 4){ %>
+                            <td>chips_quac</td>
+                        <%} else if (i == 5){ %>
+                            <td>brownie</td>
+                        <%} else if (i == 6){ %>
+                            <td>cookie</td>
+                        <%} else if (i == 7){ %>
+                            <td>drink_16oz</td>
+                        <%} else { %>
+                            <td>drink_22oz</td>
+                        <% } %>
+                        <td>$<%=items[i].count%></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</body>

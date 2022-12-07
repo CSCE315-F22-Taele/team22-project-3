@@ -17,46 +17,94 @@ var prices =
     2.75  //22oz  
 ];
 
-//finding date
+
+//finding date and times
 var today = new Date();
+var min = String(today.getMinutes()).padStart(2, '0');
+var hour =String(today.getHours()).padStart(2, '0');
 var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0
 var yyyy = today.getFullYear();
 
 today = '\'' + mm + '/' + dd + '/' + yyyy + '\'';
-
 order_array[14] = today;
+var order_number = mm+dd+hour+min;
+var customer_number = -1 ; //never same customer for first order
 
-
-
-var order_number = 0;
-var customer_number = -1; //never same customer for first order
 var cost = 0.0;
+var protein_cost = 0.0;
 
+function customerNumberCounter() {
+    let count = Number(localStorage.getItem('count')) || 0;
+    customer_number = count;
+    localStorage.setItem('count', count + 1);
+
+}
+
+function resetCounter() {
+    localStorage.clear();
+}
 
 function validate(id) {
+    var added = false;
     if (document.getElementById(id).checked) {
         menu_item_ids[id] = menu_item_ids[id] - 1;
-        if (id <= 12) { order_array[id] = '1'; } //any id number over 12 cost zero, no counted in array
+        if (id <= 12) { order_array[id] = "\'1\'"; } //any id number over 12 cost zero, no counted in array
     } else {
         menu_item_ids[id] = menu_item_ids[id]+1;
-        if (id <= 12) { order_array[id] = '0'; }
+        if (id <= 12) { order_array[id] = "\'0\'"; }
     }
-    cost = 0;
 
-    for (let i = 0; i <= 12; i++) { //first 12 items in invetory are the only ones w cost
+    cost = protein_cost;
+    console.log("prot cost: " + cost);
+    for (let i = 4; i <= 12; i++) { //first 12 items in invetory are the only ones w cost. After 4 is non proteins
         if (document.getElementById(i).checked) {
+            added = true;
             var item_price = prices[i];
             cost = cost + item_price;
             cost = Number(cost.toFixed(2));
-            document.getElementById("total").textContent=  "$" + cost;
+            console.log("added: " + item_price);
+            console.log("cost in loop: " + cost);
+            document.getElementById("total").textContent=  "$" + cost; //updating cost
             order_array[13] = cost;
+        } 
+    }
+
+    if (!added) {
+        document.getElementById("total").textContent=  "$" + cost; //updating cost
+    }
+
+}
+
+function validateProtein(id) {
+
+    cost = cost - protein_cost;
+    for (let i = 0; i < 4; i++) {
+        if (document.getElementById(i).checked) {
+            protein_cost = prices[i];
+            cost = cost + protein_cost;
+            cost = Number(cost.toFixed(2));
+            document.getElementById("total").textContent=  "$" + cost; //updating cost
+            order_array[13] = cost;
+            break;
         }
     }
+    cost = Number(cost.toFixed(2));
+    console.log(cost);
+    if (id < 0) {
+        cost = Number(cost.toFixed(2));
+        document.getElementById("total").textContent=  "$" + cost; //updating cost
+        protein_cost = 0;
+    }
+
 }
 
 function sendOrder () {
 
+    customerNumberCounter();
+    //localStorage.clear();
+
+    
     //adding the base to the sqlStmt
     order_array[2] = "\'N/A\'"; //will stay N/A if nothing is checked
     for (let i = 13; i <= 14; i++) {
@@ -64,7 +112,7 @@ function sendOrder () {
             var str = document.getElementById(i).value;
             //console.log(str);
             menu_item_ids[i] = menu_item_ids[i] - 1; //remove from inv
-            order_array[2] = str; //set sqlstmt arr to str
+            order_array[2] = "\'" + str + "\'"; //set sqlstmt arr to str
             break;
         }
     }
@@ -76,24 +124,11 @@ function sendOrder () {
             var str = document.getElementById(i).value;
             //console.log(str);
             menu_item_ids[i] = menu_item_ids[i] - 1; //remove from inv
-            order_array[3] = str; //set sqtmt arr to str
+            order_array[3] = "\'" + str + "\'"; //set sqtmt arr to str
             break;
         }
     }
 
-    //calculating cost
-
-    /*
-    for (let i = 0; i <= 12; i++) { //first 12 items in invetory are the only ones w cost
-        if (document.getElementById(i).checked) {
-            var item_price = prices[i];
-            cost = cost + item_price;
-            cost = Number(cost.toFixed(2));
-            console.log(item_price);
-            console.log("current cost: " + cost);
-        }
-    }
-    */
 
     //adding cost to sql stmt
 
@@ -111,9 +146,64 @@ function sendOrder () {
     //checking sqlstmt
     let psqlStatementArray = order_array.toString();
 
-    var psqlStmt = "INSERT INTO inventory (food_id, food_name, current_count, max_count, sell_price, is_menu_item) VALUES (" + psqlStatementArray + ")";
+    var psqlStmt = "INSERT INTO order_entries (order_number, customer, base, protein, guacamole, queso, chips_salsa, chips_queso, chips_guac, brownie, cookie, drink_16oz, drink_22oz, cost, date) VALUES (" + psqlStatementArray + ");";
     console.log(psqlStmt);
 
+
+    document.getElementById("statementID").value = psqlStmt; //updating cost
+    document.getElementById("submit").style.visibility = 'visible';
     //reload page
-    location.reload();
+    //location.reload();
+}
+
+function addItem() {
+    console.log("adding item");
+    var item = document.getElementById("food_id").value;
+    var name = document.getElementById("food_name").value;
+    var current_count = document.getElementById("current_count").value;
+    var max_count = document.getElementById("max_count").value;
+    var price = document.getElementById("sell_price").value;
+    var is_menu_item = document.getElementById("is_menu_item").value;
+    var is_protein = document.getElementById("is_protein").value;
+    
+    //if nothing is checked, set to null
+    if (name == "") { name = "null"; }
+    if (current_count == "") { current_count = "null"; }
+    if (max_count == "") { max_count = "null"; }
+    if (price == "") { price = "null"; }
+    if (is_menu_item == "") { is_menu_item = "null"; }
+    if (is_protein == "") { is_protein = "null"; }
+    psqlStmt = "INSERT INTO inventory (food_id, food_name, current_count, max_count, sell_price, is_menu_item, is_protein) VALUES (" + item + ", " + name + ", " + current_count + ", " + max_count + ", " + price + ", " + is_menu_item + ", " + is_protein + ");";
+
+    console.log(psqlStmt);
+    window.name = psqlStmt;
+}
+
+function deleteItem() {
+    var item = document.getElementById("food_id").value;
+    var psqlStmt = "DELETE FROM inventory WHERE food_id = " + item + ";";
+    console.log(psqlStmt);
+    window.name = psqlStmt;
+}
+
+function updateItem() {
+    var item = document.getElementById("food_id").value;
+    var name = document.getElementById("food_name").value;
+    var current_count = document.getElementById("current_count").value;
+    var max_count = document.getElementById("max_count").value;
+    var price = document.getElementById("sell_price").value;
+    var is_menu_item = document.getElementById("is_menu_item").value;
+    var is_protein = document.getElementById("is_protein").value;
+    
+    //if nothing is entered, don't update that field
+    var psqlStmt = "UPDATE inventory SET ";
+    if (name != "") { psqlStmt += "food_name = \'" + name + "\', "; }
+    if (current_count != "") { psqlStmt += "current_count = " + current_count + ", "; }
+    if (max_count != "") { psqlStmt += "max_count = " + max_count + ", "; }
+    if (price != "") { psqlStmt += "sell_price = " + price + ", "; }
+    if (is_menu_item != "") { psqlStmt += "is_menu_item = " + is_menu_item + ", "; }
+    if (is_protein != "") { psqlStmt += "is_protein = " + is_protein + ", "; }
+    psqlStmt = psqlStmt.slice(0, -2); //remove last comma
+    console.log(psqlStmt);
+    window.name = psqlStmt;
 }
