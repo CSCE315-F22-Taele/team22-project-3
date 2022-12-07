@@ -231,3 +231,13 @@ background-color: #5c9590;
   width: 100%;
   /* The width is the width of the web page */
 }
+
+.soundButton{
+  display: inline-block;
+  padding: 15px;
+  cursor: pointer;
+  border: 1px solid black;
+  color: white;
+  background-color: #5c9590;
+  font-size: 30px;
+}

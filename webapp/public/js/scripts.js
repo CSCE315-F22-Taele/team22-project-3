@@ -17,6 +17,9 @@ var prices =
     2.75  //22oz  
 ];
 
+var msg = new SpeechSynthesisUtterance();
+msg.text = "Hello World";
+
 
 //finding date and times
 var today = new Date();
@@ -284,4 +287,15 @@ function initMap() {
   }
   
   window.initMap = initMap;
+
+  function pressed(id) {
+    msg.text = id;
+    window.speechSynthesis.speak(msg);
+  }
+
+  function pressedTotal() {
+    msg.text = "Your total is: " + document.getElementById("total").textContent;
+    window.speechSynthesis.speak(msg);
+  }
+
 
