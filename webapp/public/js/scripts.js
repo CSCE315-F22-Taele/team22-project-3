@@ -34,17 +34,38 @@ var customer_number = -1 ; //never same customer for first order
 var cost = 0.0;
 var protein_cost = 0.0;
 
+/**
+ * Keeps the customer number increasing even after page is refreshed
+ * 
+ * @author      Joshua Batac
+ * @param       none        no parameter
+ * @return      {void}      no return
+ */
 function customerNumberCounter() {
     let count = Number(localStorage.getItem('count')) || 0;
     customer_number = count;
     localStorage.setItem('count', count + 1);
-
+    return;
 }
 
-function resetCounter() {
-    localStorage.clear();
+/**
+ * Resets stored customer number back to 0. Found in server view
+ * 
+ * @author      Joshua Batac
+ * @param       none            no parameter
+ * @return      {void}          no return  
+ */
+function resetCounter() { 
+    localStorage.clear(); 
 }
 
+/**
+ * Acts as an actionlistener for all the non protein buttons. Updates the prices as things are added and removed. Updates the inventory as well. 
+ * 
+ * @author      Joshua Batac
+ * @param       {number} id      button id   
+ * @return      {void}           no return
+ */
 function validate(id) {
     var added = false;
     if (document.getElementById(id).checked) {
@@ -76,6 +97,13 @@ function validate(id) {
 
 }
 
+/**
+ * Acts as an actionlistener for all the non buttons. Updates the Protein choice. Updates the inventory as well. 
+ * 
+ * @author      Joshua Batac
+ * @param       {number} id      button id   
+ * @return      {void}           no return
+ */
 function validateProtein(id) {
 
     cost = cost - protein_cost;
@@ -99,6 +127,14 @@ function validateProtein(id) {
 
 }
 
+
+/**
+ * Sends Order and adds order to the pSQL database 
+ * 
+ * @author      Joshua Batac
+ * @param       none             no parameter   
+ * @return      {void}           no return
+ */
 function sendOrder () {
 
     customerNumberCounter();
@@ -156,6 +192,13 @@ function sendOrder () {
     //location.reload();
 }
 
+/**
+ * Adds item to inventory
+ * 
+ * @author      Asger Larsen
+ * @param       none             no parameter   
+ * @return      {void}           no return
+ */
 function addItem() {
     console.log("adding item");
     var item = document.getElementById("food_id").value;
@@ -179,6 +222,13 @@ function addItem() {
     window.name = psqlStmt;
 }
 
+/**
+ * Adds delete items in inventory
+ * 
+ * @author      Asger Larsen
+ * @param       none             no parameter   
+ * @return      {void}           no return
+ */
 function deleteItem() {
     var item = document.getElementById("food_id").value;
     var psqlStmt = "DELETE FROM inventory WHERE food_id = " + item + ";";
@@ -186,6 +236,13 @@ function deleteItem() {
     window.name = psqlStmt;
 }
 
+/**
+ * Adds updates items in inventory
+ * 
+ * @author      Asger Larsen
+ * @param       none             no parameter   
+ * @return      {void}           no return
+ */
 function updateItem() {
     var item = document.getElementById("food_id").value;
     var name = document.getElementById("food_name").value;
