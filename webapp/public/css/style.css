@@ -107,7 +107,7 @@ tr.table-title>td {
     margin: 100px;
 }
 
-button {
+.button {
     display: inline-block;
     padding: 10px;
     cursor: pointer;
@@ -115,7 +115,12 @@ button {
     color: white;
     background-color: #5c9590;
     margin-bottom: 10px;
-    font-size: 25px;
+    font-size: 45px;
+    font-family: 'Western Cowboy', sans-serif;
+}
+
+.button:hover {
+    color: #984c2b;
 }
 
 a.button {
@@ -204,6 +209,10 @@ input[type="radio"]:checked + label {
   border: 1px solid white;
   color: white;
   background-color: #5c9590;
+}
+
+.invis {
+    display: none;
 }
 
 

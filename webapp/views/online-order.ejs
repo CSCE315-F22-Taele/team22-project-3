@@ -196,9 +196,14 @@
 
         <br>  
         <br>      
-        <a href="/online-checkout" class="button" onclick="sendOrder()">SEND IT!</a>
+        <a class="button" onclick="sendOrder()" >SEND IT</a>
 
 </div>
-<br><br>      
+
+<form action="" method="POST">
+    <input type="submit" class = "button" value="Verify Price then Click Me" id = "submit" style="visibility: hidden;"> 
+	<div class = "invis"> <input type="text" name="statement" id = "statementID" value = "">  </div>
+</form>
+
 <div class ="us"> Jonathan Kutsch | Asger Larsen | Joshua Batac | Semion Dyadkin </div>
 </footer> 

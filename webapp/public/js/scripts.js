@@ -27,19 +27,35 @@ var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
 
+var hour =String(today.getHours()).padStart(2, '0');
+
+var min = String(today.getMinutes()).padStart(2, '0');
+
 today = '\'' + mm + '/' + dd + '/' + yyyy + '\'';
 
 order_array[14] = today;
 
 
 
-var order_number = 101921559;
-var customer_number = -1; //never same customer for first order
+var order_number = mm+dd+hour+min;
+var customer_number = -1 ; //never same customer for first order
+
+function customerNumberCounter() {
+    let count = Number(localStorage.getItem('count')) || 0;
+    customer_number = count;
+    localStorage.setItem('count', count + 1);
+
+  }
+
+function resetCounter() {
+    localStorage.clear();
+}
 var cost = 0.0;
 var protein_cost = 0.0;
 
 
 function validate(id) {
+    var added = false;
     if (document.getElementById(id).checked) {
         menu_item_ids[id] = menu_item_ids[id] - 1;
         if (id <= 12) { order_array[id] = "\'1\'"; } //any id number over 12 cost zero, no counted in array
@@ -47,17 +63,26 @@ function validate(id) {
         menu_item_ids[id] = menu_item_ids[id]+1;
         if (id <= 12) { order_array[id] = "\'0\'"; }
     }
-    cost = 0;
 
+    cost = protein_cost;
+    console.log("prot cost: " + cost);
     for (let i = 4; i <= 12; i++) { //first 12 items in invetory are the only ones w cost. After 4 is non proteins
         if (document.getElementById(i).checked) {
+            added = true;
             var item_price = prices[i];
             cost = cost + item_price;
             cost = Number(cost.toFixed(2));
+            console.log("added: " + item_price);
+            console.log("cost in loop: " + cost);
             document.getElementById("total").textContent=  "$" + cost; //updating cost
             order_array[13] = cost;
-        }
+        } 
     }
+
+    if (!added) {
+        document.getElementById("total").textContent=  "$" + cost; //updating cost
+    }
+
 }
 
 function validateProtein(id) {
@@ -73,8 +98,10 @@ function validateProtein(id) {
             break;
         }
     }
+    cost = Number(cost.toFixed(2));
     console.log(cost);
     if (id < 0) {
+        cost = Number(cost.toFixed(2));
         document.getElementById("total").textContent=  "$" + cost; //updating cost
         protein_cost = 0;
     }
@@ -83,6 +110,10 @@ function validateProtein(id) {
 
 function sendOrder () {
 
+    customerNumberCounter();
+    //localStorage.clear();
+
+    
     //adding the base to the sqlStmt
     order_array[2] = "\'N/A\'"; //will stay N/A if nothing is checked
     for (let i = 13; i <= 14; i++) {
@@ -127,8 +158,9 @@ function sendOrder () {
     var psqlStmt = "INSERT INTO order_entries (order_number, customer, base, protein, guacamole, queso, chips_salsa, chips_queso, chips_guac, brownie, cookie, drink_16oz, drink_22oz, cost, date) VALUES (" + psqlStatementArray + ");";
     console.log(psqlStmt);
 
-    window.name = psqlStmt;
 
+    document.getElementById("statementID").value = psqlStmt; //updating cost
+    document.getElementById("submit").style.visibility = 'visible';
     //reload page
     //location.reload();
 }

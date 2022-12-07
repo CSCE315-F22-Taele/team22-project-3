@@ -1,10 +1,17 @@
 const express = require('express');
 const { Pool } = require('pg');
 const dotenv = require('dotenv').config();
+var bodyParser = require('body-parser')
+
+
 
 //create express app
 const app = express();
 const port = 3000;
+
+
+app.use(bodyParser.urlencoded({extended: true})) 
+app.use(bodyParser.json()) 
 
 //create pool
 const pool = new Pool ({
@@ -75,22 +82,32 @@ app.get('/online-order', (req,res) => {
     res.render('online-order');
 });
 
-app.get('/online-checkout', (req, res) => {
+app.post('/online-order', (req, res) => {
+    var str = req.body.statement;
+    console.log("post req ca1led: " + str);
+    pool
+    .query(str)
+    .then(query_res => { });
     res.render('online-checkout');
-});
+  })
+
+
+
+
+
 
 app.get('/sales-report', (req, res) => {
     items = []
     let date = new Date();
     date.setMonth(date.getMonth() - 3);
     date = date.toJSON().slice(0, 10);
-    string = 'SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Chicken\' AND date > \'' + date + '\'' 
+    console.log(date);
+    string = 'SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Chicken\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Beaf\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Steak\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Burrito\' AND protein = \'Chicken\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Burrito\' AND protein = \'Beaf\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Burrito\' AND protein = \'Steak\' AND date > \'' + date + '\''
-    string += ' UNION SELECT count(*) FROM order_entries WHERE chips_salsa= \'1\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE chips_queso= \'1\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE chips_guac = \'1\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE brownie = \'1\' AND date > \'' + date + '\''
@@ -98,10 +115,11 @@ app.get('/sales-report', (req, res) => {
     string += ' UNION SELECT count(*) FROM order_entries WHERE drink_16oz = \'1\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE drink_22oz = \'1\' AND date > \'' + date + '\';'
 
+    console.log(string);
+
     pool
         .query(string)
         .then(query_res => {
-            console.log(query_res.rowCount);
             for (let i = 0; i < query_res.rowCount; i++) {
                 items.push(query_res.rows[i]);
             }
@@ -126,6 +144,16 @@ app.get('/restock-report', (req, res) => {
 app.get('/server-view', (req,res) => {
     res.render('server-view');
 });
+
+app.post('/server-view', (req, res) => {
+    var str = req.body.statement;
+    console.log("post req ca1led: " + str);
+    pool
+    .query(str)
+    .then(query_res => { });
+    res.render('server-view');
+  })
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
