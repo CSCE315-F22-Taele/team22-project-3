@@ -51,7 +51,16 @@ input[type="radio"]:checked + label {
   background-color: black;
 }
 
-
+.button {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
 button {
     display: inline-block;
     padding: 10px;
