@@ -223,3 +223,11 @@ background-color: #5c9590;
 .goog-te-gadget{
   color: transparent !important;
 }
+
+/* Set the size of the div element that contains the map */
+#map {
+  height: 750px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}

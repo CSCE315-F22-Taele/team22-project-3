@@ -264,3 +264,22 @@ function updateItem() {
     console.log(psqlStmt);
     window.name = psqlStmt;
 }
+
+// Initialize and add the map
+function initMap() {
+    // The location of Uluru
+    const uluru = { lat: -25.344, lng: 131.031 }; //30.61255586916428, -96.34124565996838 - cabo 
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: uluru,
+    });
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+      position: uluru,
+      map: map,
+    });
+  }
+  
+  window.initMap = initMap;
+
