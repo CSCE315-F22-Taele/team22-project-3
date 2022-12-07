@@ -194,14 +194,14 @@ passport.deserializeUser(function(obj, cb) {
 
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 //for hosted website const GOOGLE_CLIENT_ID = '632511847355-7tqapbka72drbect6f8m38ic3m9c509r.apps.googleusercontent.com';
-const GOOGLE_CLIENT_ID = '632511847355-6m02srevbfvp7l7kt7fdekgcp1es90r9.apps.googleusercontent.com';
+const GOOGLE_CLIENT_ID = '632511847355-4vcs0q8kqi6tco54jf814fiodnrj9qho.apps.googleusercontent.com';
 //for hosted website const GOOGLE_CLIENT_SECRET = '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';
-const GOOGLE_CLIENT_SECRET = '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';
+const GOOGLE_CLIENT_SECRET = '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';
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
     // callbackURL: "https://cabogrillmsc.onrender.com/auth/google/callback"
-    callbackURL: "http://localhost:3000/auth/google/callback"
+    callbackURL: "https://cabogrillmsc.onrender.com/auth/google/callback"
 
   },
   function(accessToken, refreshToken, profile, done) {
