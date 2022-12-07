@@ -144,4 +144,102 @@ input[type="radio"]:checked + label {
   background-color: #5c9590;
 }
 
+::placeholder
+{
+  color: #4b4e4d;
+  padding-left: 10px;
+}
 
+#google_translate_element{
+    float:right;
+} 
+.goog-logo-link {
+    display:none !important;
+} 
+    
+.goog-te-gadget{
+    color: transparent !important;
+}
+
+.center,.content
+{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+.click-me
+{
+  display:block;
+  width:160px;
+  height:50px;
+  background-color: #5c9590;
+  box-shadow: -3px -3px 15px #2bc3fa,3px 3px 15px #2bc3fa;
+  text-align:center;
+  font-size:22px;
+  line-height:50px;
+  cursor:pointer;
+}
+#click
+{
+  display:none;
+}
+.click-me:hover
+{
+  color: #0a5878;
+}
+.content
+{
+  visibility:hidden;  
+  width: 330px;
+  height: auto;
+  background-color: #5c9590;
+  padding: 30px 35px 40px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+#click:checked~.content
+{
+  opacity:1;
+  visibility:visible;
+}
+.text
+{
+  font-family:sans-serif;
+  font-size: 30px;
+  color: #000000;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+}
+form
+{
+  margin-top: 40px;
+}
+label
+{
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+input
+{
+  display: block;
+  height: 43px;
+  width: 100%;
+  background-color: rgba(255,255,255,0.07);
+  border-radius: 3px;
+  border: none;
+
+  margin-top: 8px;
+
+  font-size: 14px;
+  font-weight: 300;
+}
+
+::placeholder
+{
+  color: #4b4e4d;
+  padding-left: 10px;
+}

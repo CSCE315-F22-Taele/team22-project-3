@@ -1,7 +1,8 @@
+
 body
  {
+  background-color: #984c2b;
   font-family:sans-serif;
-  background: #dde1e7;
   min-height: 100vh;
 }
 .center,.content
@@ -16,8 +17,8 @@ body
   display:block;
   width:160px;
   height:50px;
-  background: #dde1e7;
-  box-shadow: -3px -3px 7px #fffdfdcc,3px 3px 5px rgba(94, 104, 121, 0.342);
+  background-color: #5c9590;
+  box-shadow: -3px -3px 15px #2bc3fa,3px 3px 15px #2bc3fa;
   text-align:center;
   font-size:22px;
   line-height:50px;
@@ -36,7 +37,7 @@ body
   visibility:hidden;  
   width: 330px;
   height: auto;
-  background: #dde1e7;
+  background-color: #5c9590;
   padding: 30px 35px 40px;
   box-sizing: border-box;
   border-radius: 5px;
@@ -61,6 +62,7 @@ body
 }
 .text
 {
+  font-family:sans-serif;
   font-size: 30px;
   color: #000000;
   font-weight: 600;
@@ -97,29 +99,7 @@ input
   color: #4b4e4d;
   padding-left: 10px;
 }
-button
-{
-  width: 100%;
-  margin-top: 35px;
-  padding: 12px;
-  background: #dde1e7;
-  border: none;
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 32px;
-}
-  
-  .btn-group button:not(:last-child) {   
-    border-bottom: none; /* Prevent double borders */
-  }
 
   
 
-  .btn-group-vertical button:hover {    
-    background-color: white; 
-    color: #542c1c;
-  }
 
-  #google_translate_element{
-    
-  }

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <head>
-    <title>Users</title>
-    <link rel="stylesheet" href="css/login.css"></link>
-</head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <style>@import url('https://fonts.cdnfonts.com/css/western-cowboy');</style>
 
-<nav>
-    <b>|</b>    <a href="/ ">Home</a>
-    <b>|</b>    Login
-    <b>|</b>    <a href = "/Online-Order"> Online Order</a>
-    <b>|</b>    <a href = "/Locations"> Locations</a>
-    <div id="google_translate_element"></div>
-    <script type="text/javascript"
-          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-  </script>
+</head>
+<header> 
+    <nav>
+        <b>|</b>    <a href="/ ">Home</a>
+        <b>|</b>  Login
+        <b>|</b>    <a href = "/online-order"> Online Order</a>
+        <b>|</b>    <a href = "/locations"> Locations</a>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+    
     <script type="text/javascript">
       function googleTranslateElementInit() {
           new google.translate.TranslateElement(
@@ -21,37 +24,28 @@
           );
       }
   </script>
+    </nav>
+</header>
 
-  
 
-</nav>
-
-<html>
 <body>
-  <div class="center">
-    <input type="checkbox" id="click">
-    <label for="click" class="click-me">Login </label>
-    <div class="content">
-      <div class="text">
-        LOGIN
-     </div>
-        <label for="click" id="temp">x</label>
+    <div class = "wrapper"> 
+        <div class="center">
+            <input type="checkbox" id="click">
+            <label for="click" class="click-me">Login </label>
+            <div class="content">
+              <div class="text">
+                LOGIN
+             </div>
+                <label for="click" id="temp">x</label>
+        
+            <form> <a href="/auth/google" class="btn btn-danger" style="margin-bottom: 10px;"><span class="fa fa-google"></span> Sign In with Google</a>
+        <form action = "/Manager-view" method = "POST">
+            </form>
+              </div>
+            </div>
+        
+    
 
-    <form>
-
-        <label for="username">Name</label>
-        <input type="text" placeholder="Name" id="username">
-            <a href="/Manager-View">Manager_view(temp)</a>
-            <a href="/server-view">Server View</a>
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
-
-        <button>Log In</button>
-
-    </form>
-      </div>
     </div>
-  </div>
 </body>
-</html>
-
