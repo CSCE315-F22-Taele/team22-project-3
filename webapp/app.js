@@ -101,13 +101,13 @@ app.get('/sales-report', (req, res) => {
     let date = new Date();
     date.setMonth(date.getMonth() - 3);
     date = date.toJSON().slice(0, 10);
-    console.log(date);
-    string = 'SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Chicken\' AND date > \'' + date + '\''
+    string = 'SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Chicken\' AND date > \'' + date + '\'' 
     string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Beaf\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Steak\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Burrito\' AND protein = \'Chicken\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Burrito\' AND protein = \'Beaf\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Burrito\' AND protein = \'Steak\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE chips_salsa= \'1\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE chips_queso= \'1\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE chips_guac = \'1\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE brownie = \'1\' AND date > \'' + date + '\''
@@ -115,11 +115,10 @@ app.get('/sales-report', (req, res) => {
     string += ' UNION SELECT count(*) FROM order_entries WHERE drink_16oz = \'1\' AND date > \'' + date + '\''
     string += ' UNION SELECT count(*) FROM order_entries WHERE drink_22oz = \'1\' AND date > \'' + date + '\';'
 
-    console.log(string);
-
     pool
         .query(string)
         .then(query_res => {
+            console.log(query_res.rowCount);
             for (let i = 0; i < query_res.rowCount; i++) {
                 items.push(query_res.rows[i]);
             }

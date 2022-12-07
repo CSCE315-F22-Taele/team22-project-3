@@ -31,25 +31,45 @@
                 <% for (var i in items) { %>
                     <tr>
                         <% if (i == 0) { %>
-                            <td>Bowl</td>
-                        <%} else if (i == 1){ %>
-                            <td>Burrito</td>
-                        <%} else if (i == 2){ %>
-                            <td>chips_queso</td>
+                            <td>Chicken Bowl</td>
+                            <td>$<%=items[i].count*7.29%></td>
+                        <%} else if (i == 1) { %>
+                            <td>Beaf Bowl</td>
+                            <td>$<%=items[i].count*7.29%></td>
+                        <%} else if (i == 2) { %>
+                            <td>Steak Bowl</td>
+                            <td>$<%=items[i].count*8.19%></td>   
                         <%} else if (i == 3){ %>
-                            <td>chips_queso</td>
+                            <td>Chicken Burrito</td>
+                            <td>$<%=items[i].count*7.29%></td>
                         <%} else if (i == 4){ %>
-                            <td>chips_quac</td>
+                            <td>Beaf Burrito</td>
+                            <td>$<%=items[i].count*7.29%></td>
                         <%} else if (i == 5){ %>
-                            <td>brownie</td>
+                            <td>Steak Burrito</td> 
+                            <td>$<%=items[i].count*8.19%></td>   
                         <%} else if (i == 6){ %>
-                            <td>cookie</td>
+                            <td>chips_salsa</td>
+                            <td>$<%=items[i].count*2.19%></td>
                         <%} else if (i == 7){ %>
+                            <td>chips_queso</td>
+                            <td>$<%=items[i].count*3.64%></td>
+                        <%} else if (i == 8){ %>
+                            <td>chips_quac</td>
+                            <td>$<%=items[i].count*3.69%></td>
+                        <%} else if (i == 9){ %>
+                            <td>brownie</td>
+                            <td>$<%=items[i].count*1.99%></td>
+                        <%} else if (i == 10){ %>
+                            <td>cookie</td>
+                            <td>$<%=items[i].count*1.99%></td>
+                        <%} else if (i == 11){ %>
                             <td>drink_16oz</td>
-                        <%} else { %>
+                            <td>$<%=items[i].count*2.25%></td>
+                        <%} else if (i == 12){ %>
                             <td>drink_22oz</td>
+                            <td>$<%=items[i].count*2.75%></td>
                         <% } %>
-                        <td>$<%=items[i].count%></td>
                     </tr>
                 <% } %>
             </table>
