@@ -43,6 +43,10 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/Manager-View', (req, res) => {
+    res.render('Manager-View');
+});
+
+app.get('/inventory', (req, res) => {
     items = []
     pool
         .query('SELECT * FROM inventory ORDER BY food_id ASC;')
@@ -51,9 +55,20 @@ app.get('/Manager-View', (req, res) => {
                 items.push(query_res.rows[i]);
             }
             const data = {items: items};
-            console.log(items);
-            res.render('Manager-View',data);
+            res.render('inventory',data);
         });
+});
+
+app.get('/inventory-add', (req, res) => {
+    res.render('inventory-add');
+});
+
+app.get('/inventory-delete', (req, res) => {
+    res.render('inventory-delete');
+});
+
+app.get('/inventory-update', (req, res) => {
+    res.render('inventory-update');
 });
 
 app.get('/online-order', (req,res) => {
@@ -64,6 +79,50 @@ app.get('/online-checkout', (req, res) => {
     res.render('online-checkout');
 });
 
+app.get('/sales-report', (req, res) => {
+    items = []
+    let date = new Date();
+    date.setMonth(date.getMonth() - 3);
+    date = date.toJSON().slice(0, 10);
+    console.log(date);
+    string = 'SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Chicken\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Beaf\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Bowl\' AND protein = \'Steak\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Burrito\' AND protein = \'Chicken\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Burrito\' AND protein = \'Beaf\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE base = \'Burrito\' AND protein = \'Steak\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE chips_queso= \'1\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE chips_guac = \'1\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE brownie = \'1\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE cookie = \'1\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE drink_16oz = \'1\' AND date > \'' + date + '\''
+    string += ' UNION SELECT count(*) FROM order_entries WHERE drink_22oz = \'1\' AND date > \'' + date + '\';'
+
+    console.log(string);
+
+    pool
+        .query(string)
+        .then(query_res => {
+            for (let i = 0; i < query_res.rowCount; i++) {
+                items.push(query_res.rows[i]);
+            }
+            const data = {items: items};
+            res.render('sales-report',data);
+        });
+});
+
+app.get('/restock-report', (req, res) => {
+    items = []
+    pool
+        .query('SELECT food_id, food_name, current_count, ((current_count/max_count)*100) AS percentage FROM inventory ORDER BY food_id ASC;')
+        .then(query_res => {
+            for (let i = 0; i < query_res.rowCount; i++) {
+                items.push(query_res.rows[i]);
+            }
+            const data = {items: items};
+            res.render('restock-report',data);
+        });
+});
 
 app.get('/server-view', (req,res) => {
     res.render('server-view');

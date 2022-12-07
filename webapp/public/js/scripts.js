@@ -133,6 +133,58 @@ function sendOrder () {
     //location.reload();
 }
 
+function addItem() {
+    console.log("adding item");
+    var item = document.getElementById("food_id").value;
+    var name = document.getElementById("food_name").value;
+    var current_count = document.getElementById("current_count").value;
+    var max_count = document.getElementById("max_count").value;
+    var price = document.getElementById("sell_price").value;
+    var is_menu_item = document.getElementById("is_menu_item").value;
+    var is_protein = document.getElementById("is_protein").value;
+    
+    //if nothing is checked, set to null
+    if (name == "") { name = "null"; }
+    if (current_count == "") { current_count = "null"; }
+    if (max_count == "") { max_count = "null"; }
+    if (price == "") { price = "null"; }
+    if (is_menu_item == "") { is_menu_item = "null"; }
+    if (is_protein == "") { is_protein = "null"; }
+    psqlStmt = "INSERT INTO inventory (food_id, food_name, current_count, max_count, sell_price, is_menu_item, is_protein) VALUES (" + item + ", " + name + ", " + current_count + ", " + max_count + ", " + price + ", " + is_menu_item + ", " + is_protein + ");";
+
+    console.log(psqlStmt);
+    window.name = psqlStmt;
+}
+
+function deleteItem() {
+    var item = document.getElementById("food_id").value;
+    var psqlStmt = "DELETE FROM inventory WHERE food_id = " + item + ";";
+    console.log(psqlStmt);
+    window.name = psqlStmt;
+}
+
+function updateItem() {
+    var item = document.getElementById("food_id").value;
+    var name = document.getElementById("food_name").value;
+    var current_count = document.getElementById("current_count").value;
+    var max_count = document.getElementById("max_count").value;
+    var price = document.getElementById("sell_price").value;
+    var is_menu_item = document.getElementById("is_menu_item").value;
+    var is_protein = document.getElementById("is_protein").value;
+    
+    //if nothing is entered, don't update that field
+    var psqlStmt = "UPDATE inventory SET ";
+    if (name != "") { psqlStmt += "food_name = \'" + name + "\', "; }
+    if (current_count != "") { psqlStmt += "current_count = " + current_count + ", "; }
+    if (max_count != "") { psqlStmt += "max_count = " + max_count + ", "; }
+    if (price != "") { psqlStmt += "sell_price = " + price + ", "; }
+    if (is_menu_item != "") { psqlStmt += "is_menu_item = " + is_menu_item + ", "; }
+    if (is_protein != "") { psqlStmt += "is_protein = " + is_protein + ", "; }
+    psqlStmt = psqlStmt.slice(0, -2); //remove last comma
+    console.log(psqlStmt);
+    window.name = psqlStmt;
+}
+
 function showCost() {
     console.log(window.name);
 }

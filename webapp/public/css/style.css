@@ -129,6 +129,39 @@ a.button {
     font-size: 45px;
 }
 
+a.button:hover {
+    color: #984c2b;
+}
+
+a.mbutton {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: white;
+    background-color: #984c2b;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+a.mbutton:hover {
+    color: #5c9590;
+}
+
+.minput {
+    /*center in page */
+    margin: 0 auto;
+    display: block;
+    padding: 10px;
+    border: 1px solid black;
+    color: white;
+    background-color: #984c2b;
+    margin-bottom: 10px;
+    font-size: 25px;
+    
+    
+}
+
 input[type="checkbox"]:not(:checked), 
 input[type="checkbox"]:checked {
   position: absolute;

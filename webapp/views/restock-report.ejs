@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>Restock report</title>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <style>@import url('https://fonts.cdnfonts.com/css/western-cowboy');</style>
+    <script src = 'js/scripts.js' type = 'text/javascript'></script>
+</head>
+
+<header>
+    <nav>
+        <b>|</b>    <a href="/ ">Home</a>
+        <b>|</b>    <a href="/login">Login</a>
+        <b>|</b>    <a href="/online-order">Online Order</a>
+    </nav>
+</header>
+
+<body>
+    <br>
+    <div class = "wrapper">
+        <br> <br>
+        <h1>Restock Report</h1>
+        <br> <hr> <br>
+        <p>List of items with less than 20% left in stock</p>
+        <div class = "menu" >
+
+            <table>
+                <tr class = "table-title">
+                    <td>Name</td>
+                    <td>ID</td>
+                    <td>Current Count</td>
+                    <td>Percentage</td>
+                </tr>
+                <% for (var i in items) { %>
+                    <tr>
+                        <td><%=items[i].food_id%></td>
+                        <td><%=items[i].food_name%></td>
+                        <td><%=items[i].current_count%></td>
+                        <td><%=items[i].percentage%>%</td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</body>
