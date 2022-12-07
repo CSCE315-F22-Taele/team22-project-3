@@ -1,9 +1,5 @@
-
-
-
 var menu_item_ids = new Array(24).fill(100); //27 items in inventory
 var order_array = new Array(15).fill('\'0\''); //used for psql stmt
-var document = "/online-order";
 var prices = 
 [ 
     7.29, //chicken
@@ -21,38 +17,33 @@ var prices =
     2.75  //22oz  
 ];
 
-//finding date
+
+//finding date and times
 var today = new Date();
+var min = String(today.getMinutes()).padStart(2, '0');
+var hour =String(today.getHours()).padStart(2, '0');
 var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0
 var yyyy = today.getFullYear();
 
-var hour =String(today.getHours()).padStart(2, '0');
-
-var min = String(today.getMinutes()).padStart(2, '0');
-
 today = '\'' + mm + '/' + dd + '/' + yyyy + '\'';
-
 order_array[14] = today;
-
-
-
 var order_number = mm+dd+hour+min;
 var customer_number = -1 ; //never same customer for first order
+
+var cost = 0.0;
+var protein_cost = 0.0;
 
 function customerNumberCounter() {
     let count = Number(localStorage.getItem('count')) || 0;
     customer_number = count;
     localStorage.setItem('count', count + 1);
 
-  }
+}
 
 function resetCounter() {
     localStorage.clear();
 }
-var cost = 0.0;
-var protein_cost = 0.0;
-
 
 function validate(id) {
     var added = false;
@@ -215,8 +206,4 @@ function updateItem() {
     psqlStmt = psqlStmt.slice(0, -2); //remove last comma
     console.log(psqlStmt);
     window.name = psqlStmt;
-}
-
-function showCost() {
-    console.log(window.name);
 }
