@@ -103,3 +103,7 @@ input {
     font-weight: lighter;
     font-size: 10px;
 }
+
+.invis {
+  display: none;
+}

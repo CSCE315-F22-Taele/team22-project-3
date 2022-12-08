@@ -1,4 +1,4 @@
-var menu_item_ids = new Array(24).fill(100); //27 items in inventory
+var menu_item_ids = new Array(24).fill(false); //27 items in inventory
 var order_array = new Array(15).fill('\'0\''); //used for psql stmt
 var prices = 
 [ 
@@ -70,13 +70,15 @@ function resetCounter() {
  * @return      {void}           no return
  */
 function validate(id) {
+    for (let i = 4; i < menu_item_ids.length; i++) { //resetting numbers
+        menu_item_ids[i] = false;
+    }
     document.getElementById("submit").style.visibility = 'hidden';
     var added = false;
     if (document.getElementById(id).checked) {
-        menu_item_ids[id] = menu_item_ids[id] - 1;
+        menu_item_ids[id] = true;
         if (id <= 12) { order_array[id] = "\'1\'"; } //any id number over 12 cost zero, no counted in array
     } else {
-        menu_item_ids[id] = menu_item_ids[id]+1;
         if (id <= 12) { order_array[id] = "\'0\'"; }
     }
 
@@ -110,6 +112,9 @@ function validate(id) {
  */
 function validateProtein(id) {
     document.getElementById("submit").style.visibility = 'hidden';
+    for (let i = 0; i < 4; i++) {
+        menu_item_ids[i] = false;
+    }
 
     cost = cost - protein_cost;
     for (let i = 0; i < 4; i++) {
@@ -152,7 +157,7 @@ function sendOrder () {
         if (document.getElementById(i).checked) {
             var str = document.getElementById(i).value;
             //console.log(str);
-            menu_item_ids[i] = menu_item_ids[i] - 1; //remove from inv
+            menu_item_ids[i] = true; //remove from inv
             order_array[2] = "\'" + str + "\'"; //set sqlstmt arr to str
             break;
         }
@@ -164,7 +169,7 @@ function sendOrder () {
         if (document.getElementById(i).checked) {
             var str = document.getElementById(i).value;
             //console.log(str);
-            menu_item_ids[i] = menu_item_ids[i] - 1; //remove from inv
+            menu_item_ids[i] = true; //remove from inv
             order_array[3] = "\'" + str + "\'"; //set sqtmt arr to str
             break;
         }
@@ -193,6 +198,23 @@ function sendOrder () {
 
     document.getElementById("statementID").value = psqlStmt; //updating cost
     document.getElementById("submit").style.visibility = 'visible';
+
+    for (let i = 4; i < menu_item_ids.length; i++) {
+        if (document.getElementById(i).checked) {
+            menu_item_ids[i] = true;
+        }
+    }
+
+    for (let i = 0; i < menu_item_ids.length; i++) {
+        var elementID = "form_" + i;
+        document.getElementById(elementID).value = menu_item_ids[i];
+
+        if (menu_item_ids[i]) {
+            console.log("food_id: " + i);
+        }
+
+
+    }
     //reload page
     //location.reload();
 }

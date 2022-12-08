@@ -95,13 +95,53 @@ app.get('/successfulLogin', (req,res) => {
     res.render('successfulLogin');
 });
 app.post('/online-order', (req, res) => {
-    var str = req.body.statement;
-    console.log("post req ca1led: " + str);
+    var str = req.body;
+    arrayBools = new Array();
+    arrayBools.push(str.form_0);
+    arrayBools.push(str.form_1);
+    arrayBools.push(str.form_2);
+    arrayBools.push(str.form_3);
+    arrayBools.push(str.form_4);
+    arrayBools.push(str.form_5);
+    arrayBools.push(str.form_6);
+    arrayBools.push(str.form_7);
+    arrayBools.push(str.form_8);
+    arrayBools.push(str.form_9);
+    arrayBools.push(str.form_10);
+    arrayBools.push(str.form_11);
+    arrayBools.push(str.form_12);
+    arrayBools.push(str.form_13);
+    arrayBools.push(str.form_14);
+    arrayBools.push(str.form_15);
+    arrayBools.push(str.form_16);
+    arrayBools.push(str.form_17);
+    arrayBools.push(str.form_18);
+    arrayBools.push(str.form_19);
+    arrayBools.push(str.form_20);
+    arrayBools.push(str.form_21);
+    arrayBools.push(str.form_22);
+    arrayBools.push(str.form_23);
+    console.log(arrayBools);
+
+    var poolQuery = str.statementID;
+    console.log(poolQuery +" ");
+
+
+    for (let i = 0; i < arrayBools.length; i++) {
+        if (arrayBools[i] == 'true') {
+            var poolAdd = "UPDATE inventory SET current_count = current_count - 1 WHERE food_id = " + i + "; ";
+            poolQuery = poolQuery + poolAdd;
+            console.log(poolQuery);
+        }
+    }
+
+
     pool
-    .query(str)
+    .query(poolQuery)
     .then(query_res => { });
     res.render('online-checkout');
-  })
+
+  });
 
 
 
@@ -158,14 +198,53 @@ app.get('/server-view', (req,res) => {
 });
 
 app.post('/server-view', (req, res) => {
-    var str = req.body.statement;
-    console.log("post req ca1led: " + str);
+    var str = req.body;
+    arrayBools = new Array();
+    arrayBools.push(str.form_0);
+    arrayBools.push(str.form_1);
+    arrayBools.push(str.form_2);
+    arrayBools.push(str.form_3);
+    arrayBools.push(str.form_4);
+    arrayBools.push(str.form_5);
+    arrayBools.push(str.form_6);
+    arrayBools.push(str.form_7);
+    arrayBools.push(str.form_8);
+    arrayBools.push(str.form_9);
+    arrayBools.push(str.form_10);
+    arrayBools.push(str.form_11);
+    arrayBools.push(str.form_12);
+    arrayBools.push(str.form_13);
+    arrayBools.push(str.form_14);
+    arrayBools.push(str.form_15);
+    arrayBools.push(str.form_16);
+    arrayBools.push(str.form_17);
+    arrayBools.push(str.form_18);
+    arrayBools.push(str.form_19);
+    arrayBools.push(str.form_20);
+    arrayBools.push(str.form_21);
+    arrayBools.push(str.form_22);
+    arrayBools.push(str.form_23);
+    console.log(arrayBools);
+
+    var poolQuery = str.statementID;
+    console.log(poolQuery +" ");
+
+
+    for (let i = 0; i < arrayBools.length; i++) {
+        if (arrayBools[i] == 'true') {
+            var poolAdd = "UPDATE inventory SET current_count = current_count - 1 WHERE food_id = " + i + "; ";
+            poolQuery = poolQuery + poolAdd;
+            console.log(poolQuery);
+        }
+    }
+
+
     pool
-    .query(str)
+    .query(poolQuery)
     .then(query_res => { });
     res.render('server-view');
-  })
 
+  });
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
